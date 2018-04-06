@@ -1,0 +1,28 @@
+ADMIN: (can be changed in views.py before creating database)
+username:sanya
+password:sanya5549
+
+
+
+USERS: (can be created in sign up form)
+Username:Kanika Dhiman
+Password:kdkdkdkd
+
+Username:Pragati
+Password:pragatipragati
+
+Username:Shikhar
+password:shikhar1234
+
+
+
+
+FOSS: (can be created in admin page)
+
+Foss1 (assigned to Kanika Dhiman)
+{Video1, Video2, Video3, Video4, Video5, Video6, Video7, Video8, Video9, Video10 }
+
+Foss2 (assigned to Shikhar)
+{Tut1, Tut2, Tut3, Tut4, Tut5, Tut6, Tut7, Tut8, Tut9, Tut10}
+
+(No foss has been assigned to Pragati yet)
