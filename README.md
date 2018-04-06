@@ -9,7 +9,6 @@ Django==2.0.3
 Install virtualenv $ sudo apt install python-virtualenv
 Create a virtual environment $ virtualenv env -p python3
 Activate the env: $ source env/bin/activate
-Install the requirements: $ pip install -r requirements.txt
 Change directory to spokentut $ cd spokentut
 Make migrations $ python manage.py makemigrations
 Migrate the changes to the database $ python manage.py migrate
