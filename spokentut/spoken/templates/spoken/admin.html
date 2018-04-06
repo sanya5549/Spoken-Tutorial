@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>Admin</title>
+      {% load staticfiles %}
+     <link href="{% static '/spoken/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <script src="{% static '/spoken/js/bootstrap.min.js' %}" rel="stylesheet" ></script>
+    <script src="{%  static '/spoken/js/jquery.min.js' %}" rel="stylesheet" ></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-md-8 col-md-offset-2" style="margin-top:20px; margin-bottom: 20px;">
+<ul class="nav nav-tabs nav-justified" >
+    <li class="active"><h4><strong>Welcome Admin! <span class="glyphicon glyphicon-user"></span> </strong></h4></li>
+    <li><a href="{% url 'logout' %}"><h4><strong>Log Out </strong><span class="glyphicon glyphicon-log-out"></span></h4></a></li>
+</ul>
+</div>
+</div>
+<div class="row" style="margin:20px;">
+
+    {% if  messages %}
+        <div class="alert alert-success" style="margin: 10px;">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{ message }}<strong></li>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="panel-group" id="#accordion1">
+
+
+<div class="row" style="margin:20px;">
+<div class="col-md-12 col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+<div class="panel-heading text-center">
+<h4 class="panel-title">
+<a href="#cla1" data-toggle="collapse" data-parent="#accordion1"><h4><strong>Create Foss</strong></h4></a>
+</h4>
+</div>
+<div class="collapse panel-collapse" id="cla1">
+<div class="panel-body">
+
+    <form role="form" action="{% url 'admindata' %}" method="POST">
+            {% csrf_token %}
+                                    <fieldset>
+                                                <div class="row">
+												<div class="col-sm-12">
+												<div class="form-group">
+                                                    <div class="row">
+
+                                                </div>
+													<div class="alert alert-info">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-bookmark"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Foss Id" name="fossid" id="fossid" type="text" autofocus="" required>
+                                                    </div>
+													</div>
+                                                </div>
+												</div>
+												</div>
+
+
+
+												   <div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 1" name="tutorial1" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline1"  type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+
+
+
+
+                                                       <div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 2" name="tutorial2" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline2" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 3" name="tutorial3" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline3" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 4" name="tutorial4" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline4" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 5" name="tutorial5"  type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline5" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 6" name="tutorial6" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline6" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 7" name="tutorial7" type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline7" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 8" name="tutorial8"  type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline8"  type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 9" name="tutorial9"  type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline9"  type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+												<div class="row">
+												<div class="col-sm-7">
+											       <div class="form-group">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-facetime-video"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Tutorial 10" name="tutorial10"  type="text" autofocus="" required>
+                                                    </div>
+                                                </div>
+
+												</div>
+												<div class="col-sm-5">
+												 <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-th"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Deadline(YYYY-MM-DD)" name="deadline10" type="text" autofocus="" required />
+                                                    </div>
+
+
+                                                </div>
+												</div>
+
+
+												<div class="row" style="margin: 10px;">
+                                                <div class="form-group">
+                                                    <input type="submit" name="s3" class="btn btn-lg btn-primary btn-block" value="Submit_Foss">
+                                                </div>
+                                          </div>
+                                    </fieldset>
+                        </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-group" id="#accordion2">
+<div class="row" style="margin:20px;">
+<div class="col-md-12 col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+<div class="panel-heading text-center">
+<h4 class="panel-title">
+<a href="#cla2" data-toggle="collapse" data-parent="#accordion2"><h4><strong>Assign Foss To A User</strong></h4></a>
+</h4>
+</div>
+
+<div class="collapse panel-collapse" id="cla2">
+<div class="panel-body">
+     <form role="form" action="{% url 'admindata' %}" method="POST">
+                                {% csrf_token %}
+                                    <fieldset>
+
+                                            <div class="col-md-12 col-md-10  col-md-offset-1 ">
+                                                <div class="row">
+
+
+												<div class="form-group">
+													<label class="form-group col-md-3 text-right" >Select Foss</label>
+													<div class="col-md-9">
+															<select class="form-control" name="fossassn">
+															{% for fs in list2 %}
+															<option value="{{ fs.fossname }}">{{ fs.fossname }}</option>
+                                                            {% endfor %}
+															</select>
+													</div>
+												</div>
+                                                </div>
+
+												  <div class="row" style="margin:20px;">
+												<div class="form-group">
+													<label class="form-group col-md-3 text-right">Select User</label>
+													<div class="col-md-9">
+															<select class="form-control" name="userassn">
+															{% for us in list1 %}
+                                                                <option value="{{ us.user }}">{{ us.user }}</option>
+															{% endfor %}
+															</select>
+													</div>
+												</div>
+                                                 </div>
+
+												  <div class="row" style="margin:20px;">
+                                                <div class="form-group">
+                                                    <input type="submit" name="s3" class="btn btn-lg btn-primary btn-block" value="Assign_Foss">
+                                                </div>
+												</div>
+                                            </div>
+
+                                    </fieldset>
+                                </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row" style="margin: 10px;">
+    <div class="alert alert-info text-center"><strong>Click on the user to get data!</strong></div>
+</div>
+
+<div class="col-lg-2" >
+<div class="panel panel-default">
+        <form id="fossForm" role="form" action="{% url 'admindata' %}" method="POST">
+{% csrf_token %}
+        <div class="panel-heading">
+          <h4 class="text-center">
+            User List
+               <hr/>
+          </h4>
+        </div>
+		<div class="text-center" style="height:430px; overflow:scroll;">
+        {% for ul in list1 %}
+
+            <div class="form-group" style="margin: 0px !important;">
+                <input type="submit" name="s4" class="btn btn-md btn-default btn-block" value="{{ ul.user }}">
+            </div>
+        {% endfor %}
+</div>
+</form>
+</div>
+</div>
+
+<div class="col-lg-10">
+{% if Mainlist %}
+ <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Tutorial's Data
+          </h4>
+        </div>
+
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-xs-1">#</th><th class="col-xs-3">Name</th><th class="col-xs-3">Submission Date</th><th class="col-xs-3">Deadline</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in Mainlist %}
+                    <tr>
+                        <td class="col-xs-1">{{ i.a2 }}</td><td class="col-xs-3">{{ i.a1 }}</td><td class="col-xs-3">{{ i.a3 }}</td><td class="col-xs-3">{{ i.a4 }}</td>
+                    </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+<div class="alert alert-default text-center" role="alert" style="margin-top:20px; background-color:#666666; color:white;">
+ <h3><strong>Total Amount:</strong> {{ am }}</h3>
+</div>
+{% else %}
+        <div class="alert alert-default text-center" role="alert" style="margin-top:20px; background-color: #9acfea;"><h4><strong>List is empty!</strong></h4></div>
+{% endif %}
+</div>
+</div>
+
+
+  <script src="{% static '/spoken/js/jquery.min.js' %}"></script>
+  <script src="{%  static '/spoken/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/spoken/js/script.min.js' %}"></script>
+  <script src="{% static '/spoken/js/bootstrap-carousel-swipe.js' %}"></script>
+
+</body>
+</html>

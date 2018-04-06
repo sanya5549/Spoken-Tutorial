@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>User</title>
+      {% load staticfiles %}
+     <link href="{% static '/spoken/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <script src="{% static '/spoken/js/bootstrap.min.js' %}" rel="stylesheet" ></script>
+    <script src="{%  static '/spoken/js/jquery.min.js' %}" rel="stylesheet" ></script>
+</head>
+<body>
+<div class="container">
+    <h4 style="margin-left:30px;">{% for udet in udets %}{{ udet.email }}{% endfor %} <span  class="glyphicon glyphicon-envelope"></span></h4>
+<div class="row">
+<div class="col-md-12 col-md-8 col-md-offset-2" style="margin-top:20px;">
+<ul class="nav nav-tabs nav-justified" >
+<li class="active"><h4><strong>{{ user.get_username }} <span class="glyphicon glyphicon-user"></span> </strong></h4></li>
+    <li><a href="{% url 'logout' %}"><h4><strong>Log Out </strong><span class="glyphicon glyphicon-log-out"></span></h4></a></li>
+</ul>
+</div>
+</div>
+
+<div class="alert alert-info text-center" role="alert" style="margin-top:20px;">
+ <h3><strong>YOUR TUTORIALS</strong></h3>
+</div>
+
+<div class="alert alert-success text-center" role="alert" style="margin-top:20px;">
+ <h4><strong>Foss Id: {% if f_name %} {{ f_name }} {% else %} No Tutorials has been assigned yet! {% endif %}</strong></h4>
+</div>
+<div class="row" style="margin:20px;">
+    {% if  messages %}
+        <div class="alert alert-success" style="margin: 10px;">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{ message }}<strong></li>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="col-lg-9">
+<div class="panel-group">
+
+{% for i in Mainlist1 %}
+<div class="row" style="margin:20px;">
+<div class="col-md-12 col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+
+<div class="panel-heading text-center">
+<h4 class="panel-title">
+<strong>Tutorial: {{ i.b1 }}</strong>
+</h4>
+</div>
+
+<div class="panel-body">
+<div class="alert alert-success" role="alert">Submission Date: {{ i.b3 }} </div>
+<div class="alert alert-danger" role="alert">Deadline: {{ i.b4 }} </div>
+
+    <div class="row" style="margin: 5px;">
+    <div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+ **Since it is a dummy button, please click on 'Upload' to submit your Tutorial**</div>
+   </div>
+</div>
+
+<div class="panel-footer">
+    <div class="row">
+    <form role="form" action="{% url 'userpg' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group" style="margin-left:10px; margin-right: 10px;">
+            <input type="hidden" name="usernm" value="{{ user.get_username }}">
+            <input type="hidden" name="tutname" value="{{ i.b1 }}">
+            <input type="hidden" name="fname" value="{% if f_name %}{{ f_name }}{% endif %}">
+            <input type="submit" name="s5" class="btn btn-lg btn-default btn-block" style="background-color:lightseagreen; color:white;" value="UPLOAD">
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% if f_name %}
+<div class="col-lg-3">
+<div class="alert alert-info" style="margin-top:30px;">Amount: {{ am }}</div>
+</div>
+{% endif %}
+</div>
+
+
+    <script src="{% static '/spoken/js/jquery.min.js' %}"></script>
+    <script src="{%  static '/spoken/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/spoken/js/script.min.js' %}"></script>
+    <script src="{% static '/spoken/js/bootstrap-carousel-swipe.js' %}"></script>
+</body>
+</html>
